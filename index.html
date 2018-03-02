@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yes, a really good book!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles.css">
+    <link href="/jquery-ui/jquery-ui.css" type="text/css" rel="stylesheet">
+	  <link href="/jquery-ui/jquery-ui.structure.css" type="text/css" rel="stylesheet">
+	  <link href="/jquery-ui/jquery-ui.theme.css" type="text/css" rel="stylesheet">
+    <script
+		src="https://code.jquery.com/jquery-3.3.1.js"
+		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+		crossorigin="anonymous"></script>
+	  <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+    <script src="/script.js" defer></script>
+    
+    <script>
+        $( function() {
+            var handle1 = $( "#custom-handle1" );
+            $( "#slider1" ).slider({
+                value: 5,
+                max: 10,
+                min: 1,
+                create: function() {
+                    handle1.text( $( this ).slider( "value" ) );
+                },
+                
+                slide: function( event, ui ) {
+                    handle1.text( ui.value );
+                    m = ui.value;
+                }
+            });
+            var handle2 = $( "#custom-handle2" );
+            $( "#slider2" ).slider({
+                value: 5,
+                max: 10,
+                min: 1,
+                create: function() {
+                    handle2.text( $( this ).slider( "value" ) );
+                },
+
+                slide: function( event, ui ) {
+                    handle2.text( ui.value );
+                    n = ui.value;
+                }
+            });
+            $('#color1').click( function() {
+                color1 = $( this ).val();
+                if (color1 == 'surprise') {
+                  color1 = color(Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255));
+                }
+            });
+            $('#color2').click( function() {
+                color2 = $( this ).val();
+                if (color2 == 'surprise') {
+                    color2 = color(Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255));
+                  }
+            });
+            $('#start').click( function() {
+                loop();
+            });
+            $('#stop').click( function() {
+                noLoop();
+            });
+        } );
+	  </script>
+  </head>
+  <body>
+    
+    <div class="page-container">
+      <div class="page-back">
+        <nav>
+          <div class="logo"><img src="example-logo.png" width="150"></div>
+          <ul>
+            <li><a href="#" class="hover">Home</a></li>
+            <li><a href="/maths" class="hover">Maths</a></li>
+            <li><a href="#" class="hover">QuickMaths</a></li>
+            <li><a href="#" class="hover">Wow Math</a></li>
+            <li><a class="active" href="#">Log-In Maths</a></li>
+          </ul>
+        </nav>
+        <div class="content">
+          <div id="slider1" class="slider">
+            <div id="custom-handle1" class="ui-slider-handle custom-handle"></div>
+          </div>
+          <div id="slider2" class="slider">
+            <div id="custom-handle2" class="ui-slider-handle custom-handle"></div>
+          </div>
+          <select id="color1">
+            <option value="red">RED</option>
+            <option value="green">GREEN</option>
+            <option value="blue">BLUE</option>
+            <option value="white">WHITE</option>
+            <option value="black">BLACK</option>
+            <option value="surprise">SURPRISE ME</option>
+          </select>
+          <select id="color2">
+            <option value="red">RED</option>
+            <option value="green">GREEN</option>
+            <option value="blue">BLUE</option>
+            <option value="white">WHITE</option>
+            <option value="black">BLACK</option>
+            <option value="surprise">SURPRISE ME</option>
+          </select>
+          <button id="start">Start</button>
+          <button id="stop">Stop</button>
+        </div>  
+      </div>
+    </div>
+  </body>
+</html>
