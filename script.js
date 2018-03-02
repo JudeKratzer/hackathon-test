@@ -1,7 +1,7 @@
 console.log('hi');
 function setup(){
   createCanvas(windowWidth,windowHeight);
-  background(255,0,255);
+  //background(255,0,255);
   w=windowWidth;
   h=windowHeight;
 }
@@ -13,8 +13,9 @@ var m=5;
 var n=-5;
 var color1="red";
 var color2="blue";
+var loadImage
 function draw(){
-  background(255,0,255);
+  background('rgba(255,255,255,0.1)');
   i+=m;
   j+=n;
   (i<300)?fill(color1):fill(color2);
