@@ -19,60 +19,8 @@
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
     <script src="/script.js" defer></script>
-    
-    <script>
-        $( function() {
-            var handle1 = $( "#custom-handle1" );
-            $( "#slider1" ).slider({
-                value: 5,
-                max: 10,
-                min: 1,
-                create: function() {
-                    handle1.text( $( this ).slider( "value" ) );
-                },
-                
-                slide: function( event, ui ) {
-                    handle1.text( ui.value );
-                    m = ui.value;
-                }
-            });
-            var handle2 = $( "#custom-handle2" );
-            $( "#slider2" ).slider({
-                value: 5,
-                max: 10,
-                min: 1,
-                create: function() {
-                    handle2.text( $( this ).slider( "value" ) );
-                },
-
-                slide: function( event, ui ) {
-                    handle2.text( ui.value );
-                    n = ui.value;
-                }
-            });
-            $('#color1').click( function() {
-                color1 = $( this ).val();
-                if (color1 == 'surprise') {
-                  color1 = color(Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255));
-                }
-            });
-            $('#color2').click( function() {
-                color2 = $( this ).val();
-                if (color2 == 'surprise') {
-                    color2 = color(Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255));
-                  }
-            });
-            $('#start').click( function() {
-                loop();
-            });
-            $('#stop').click( function() {
-                noLoop();
-            });
-        } );
-	  </script>
   </head>
   <body>
-    
     <div class="page-container">
       <div class="page-back">
         <nav>
@@ -92,24 +40,35 @@
           <div id="slider2" class="slider">
             <div id="custom-handle2" class="ui-slider-handle custom-handle"></div>
           </div>
-          <select id="color1">
-            <option value="red">RED</option>
-            <option value="green">GREEN</option>
-            <option value="blue">BLUE</option>
-            <option value="white">WHITE</option>
-            <option value="black">BLACK</option>
-            <option value="surprise">SURPRISE ME</option>
-          </select>
-          <select id="color2">
-            <option value="red">RED</option>
-            <option value="green">GREEN</option>
-            <option value="blue">BLUE</option>
-            <option value="white">WHITE</option>
-            <option value="black">BLACK</option>
-            <option value="surprise">SURPRISE ME</option>
-          </select>
-          <button id="start">Start</button>
-          <button id="stop">Stop</button>
+          <fieldset>
+            <label for="color1">Select a color</label>
+            <select name="color1" id="color1">
+              <option value="red">RED</option>
+              <option value="green">GREEN</option>
+              <option value="blue">BLUE</option>
+              <option value="white">WHITE</option>
+              <option value="black">BLACK</option>
+              <option value="surprise">SURPRISE ME</option>
+            </select>
+            <label for="color2">Select a color</label>
+            <select name="color2" id="color2">
+              <option value="red">RED</option>
+              <option value="green">GREEN</option>
+              <option value="blue">BLUE</option>
+              <option value="white">WHITE</option>
+              <option value="black">BLACK</option>
+              <option value="surprise">SURPRISE ME</option>
+            </select>
+            <span class="widget">
+              <button id="buttonstart">Start</button>
+              <button id="buttonstop">Stop</button>
+            </span>
+            <input type="text" id="repo-input" placeholder="user/repo"/>
+            <button id="repo-button">Visualize Repository</button>
+            <input type="text" id="zip-input" placeholder="Zip-Code or City"/>
+            <button id="zip-button">Visualize Weather</button>
+          </fieldset>
+          
         </div>  
       </div>
     </div>
